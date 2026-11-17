@@ -1,4 +1,4 @@
-# Banque d'Epreuves MINESEC – application Android
+# Banque d'Epreuves – application Android
 
 Épreuves et corrigés du secondaire camerounais : sous-système francophone
 (6e à Terminale) et anglophone (Form 1 à Upper Sixth).
