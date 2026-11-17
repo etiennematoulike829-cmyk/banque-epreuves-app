@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://etiennematoulike829-cmyk.github.io/banque-epreuves-app/sitemap.xml

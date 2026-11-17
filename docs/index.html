@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banque d'Épreuves Cameroun – Épreuves et corrigés de la 6e à la Terminale (APK Android)</title>
+  <meta name="description" content="Téléchargez gratuitement Banque d'Épreuves Cameroun : plus de 11 000 sujets d'épreuves avec corrigés pour le secondaire camerounais, de la 6e à la Terminale et de la Form 1 à l'Upper Sixth. Préparez le BEPC, le Probatoire, le BAC et le GCE.">
+  <meta name="keywords" content="épreuves Cameroun, corrigés épreuves Cameroun, banque d'épreuves, épreuves 6ème, épreuves 3ème BEPC, épreuves probatoire, épreuves BAC Cameroun, GCE O Level, GCE A Level, Form 1, Form 5, Lower Sixth, Upper Sixth, mathématiques, physique, chimie, SVT, anglais, MINESEC, application Android">
+  <meta name="author" content="Banque d'Épreuves Cameroun">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://etiennematoulike829-cmyk.github.io/banque-epreuves-app/">
+  <meta name="theme-color" content="#0f6b4f">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Banque d'Épreuves Cameroun">
+  <meta property="og:title" content="Banque d'Épreuves Cameroun – épreuves et corrigés du secondaire">
+  <meta property="og:description" content="Plus de 11 000 sujets avec corrigés, de la 6e à la Terminale et de la Form 1 à l'Upper Sixth. Application Android gratuite.">
+  <meta property="og:url" content="https://etiennematoulike829-cmyk.github.io/banque-epreuves-app/">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f6b4f'/%3E%3Cpath d='M18 16h20l8 8v24H18z' fill='%23fff'/%3E%3Cpath d='M24 32h16M24 39h16M24 25h9' stroke='%230f6b4f' stroke-width='3'/%3E%3C/svg%3E">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Banque d'Épreuves Cameroun",
+    "operatingSystem": "Android 7.0 ou plus récent",
+    "applicationCategory": "EducationalApplication",
+    "softwareVersion": "1.0.0",
+    "fileSize": "72 Mo",
+    "inLanguage": ["fr", "en"],
+    "description": "Épreuves et corrigés du secondaire camerounais, sous-système francophone (6e à Terminale) et anglophone (Form 1 à Upper Sixth).",
+    "downloadUrl": "https://github.com/etiennematoulike829-cmyk/banque-epreuves-app/releases/download/v1.0.0/Banque-Epreuves-v1.0.0.apk",
+    "url": "https://etiennematoulike829-cmyk.github.io/banque-epreuves-app/",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "XAF" }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f6f8f7;
+      --surface: #ffffff;
+      --text: #14211c;
+      --muted: #52625b;
+      --line: #dfe7e3;
+      --brand: #0f6b4f;
+      --brand-strong: #0a5039;
+      --brand-soft: #e3f2ec;
+      --accent: #d99a1e;
+      --shadow: 0 1px 2px rgba(16, 40, 30, .06), 0 8px 24px rgba(16, 40, 30, .08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1513;
+        --surface: #16201d;
+        --text: #e7efeb;
+        --muted: #9fb0a8;
+        --line: #26342f;
+        --brand: #3fbf8f;
+        --brand-strong: #5fd3a6;
+        --brand-soft: #18322a;
+        --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    a { color: var(--brand); }
+
+    header.hero {
+      background: linear-gradient(160deg, #0f6b4f 0%, #0a4a37 100%);
+      color: #fff;
+      padding: 40px 0 48px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.05rem; }
+    .brand svg { flex: none; }
+    .hero h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); line-height: 1.15; margin: 28px 0 12px; letter-spacing: -.02em; }
+    .hero p.lead { font-size: 1.08rem; max-width: 40em; margin: 0 0 24px; color: #d6ece3; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none; }
+    .meta li { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 4px 12px; font-size: .9rem; }
+
+    .btn-dl {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      width: 100%; max-width: 460px;
+      background: var(--accent); color: #1d1404;
+      font-size: 1.12rem; font-weight: 700; text-decoration: none;
+      padding: 18px 22px; border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.25);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn-dl:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+    .btn-dl:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    .dl-note { margin: 12px 0 0; font-size: .9rem; color: #c3e0d4; }
+
+    section { padding: 48px 0 8px; }
+    h2 { font-size: clamp(1.4rem, 4.5vw, 1.9rem); margin: 0 0 8px; letter-spacing: -.01em; }
+    .section-lead { color: var(--muted); margin: 0 0 24px; max-width: 46em; }
+
+    .grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .grid.three { grid-template-columns: repeat(3, 1fr); } }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+      padding: 20px; box-shadow: var(--shadow);
+    }
+    .card h3 { margin: 10px 0 6px; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .ico {
+      width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+      background: var(--brand-soft); color: var(--brand);
+    }
+
+    .levels { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .levels { grid-template-columns: 1fr 1fr; } }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .chips span { font-size: .85rem; background: var(--brand-soft); color: var(--text); border-radius: 999px; padding: 3px 10px; }
+
+    .subjects { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .subjects li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: .95rem; }
+
+    .steps { counter-reset: s; display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 820px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+    .step { position: relative; }
+    .step .num {
+      position: absolute; top: -12px; left: 16px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--brand); color: #fff; font-weight: 700;
+      display: grid; place-items: center; box-shadow: var(--shadow);
+    }
+    .phone {
+      margin: 14px auto 14px; width: 168px; height: 236px;
+      border: 6px solid #1f2a26; border-radius: 22px; background: #fbfdfc;
+      padding: 14px 10px; color: #14211c; font-size: 11px; line-height: 1.35;
+      display: flex; flex-direction: column; gap: 8px; overflow: hidden;
+    }
+    .phone .bar { font-weight: 700; font-size: 12px; border-bottom: 1px solid #dfe7e3; padding-bottom: 6px; }
+    .phone .row { display: flex; align-items: center; justify-content: space-between; gap: 6px; background: #eef4f1; border-radius: 6px; padding: 6px; }
+    .phone .hl { outline: 2px solid #d99a1e; background: #fff6e2; }
+    .toggle { width: 26px; height: 14px; border-radius: 999px; background: #0f6b4f; position: relative; flex: none; }
+    .toggle::after { content: ""; position: absolute; right: 2px; top: 2px; width: 10px; height: 10px; border-radius: 50%; background: #fff; }
+    .phone .pbtn { margin-top: auto; align-self: flex-end; background: #0f6b4f; color: #fff; border-radius: 6px; padding: 5px 10px; font-weight: 700; }
+    .phone .file { display: flex; gap: 6px; align-items: center; }
+    .phone .file b { display: block; }
+    .apkico { width: 26px; height: 30px; border-radius: 4px; background: #3ddc84; flex: none; }
+
+    .note {
+      margin-top: 18px; padding: 14px 16px; border-radius: 12px;
+      background: var(--brand-soft); border: 1px solid var(--line); color: var(--text); font-size: .95rem;
+    }
+
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+    summary { cursor: pointer; font-weight: 600; }
+    details p { margin: 10px 0 0; color: var(--muted); }
+
+    .cta-bottom { text-align: center; padding: 48px 0; }
+    .cta-bottom .btn-dl { margin: 0 auto; }
+    .cta-bottom .dl-note { color: var(--muted); }
+
+    footer { border-top: 1px solid var(--line); padding: 20px 0 32px; color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#fff" fill-opacity=".14"/><path d="M18 16h20l8 8v24H18z" fill="#fff"/><path d="M24 32h16M24 39h16M24 25h9" stroke="#0f6b4f" stroke-width="3"/></svg>
+      Banque d'Épreuves Cameroun
+    </div>
+    <h1>Les épreuves et leurs corrigés, de la 6<sup>e</sup> à la Terminale et de la Form&nbsp;1 à l'Upper Sixth</h1>
+    <p class="lead">Plus de 11&nbsp;000 sujets d'évaluation conformes aux programmes du secondaire camerounais, en français et en anglais, pour réviser et préparer le BEPC, le Probatoire, le BAC et le GCE.</p>
+    <ul class="meta" aria-label="Informations sur le fichier">
+      <li>Version v1.0.0</li>
+      <li>Android 7.0 ou plus</li>
+      <li>APK de 72&nbsp;Mo (75&nbsp;492&nbsp;518 octets)</li>
+    </ul>
+    <a class="btn-dl" href="https://github.com/etiennematoulike829-cmyk/banque-epreuves-app/releases/download/v1.0.0/Banque-Epreuves-v1.0.0.apk" download>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
+      Télécharger l'application Android (APK)
+    </a>
+    <p class="dl-note">Installation gratuite. Les épreuves et les corrigés s'achètent à l'unité dans l'application.</p>
+  </div>
+</header>
+
+<main>
+  <section id="fonctionnalites">
+    <div class="wrap">
+      <h2>Ce que contient l'application</h2>
+      <p class="section-lead">Chaque évaluation propose plusieurs sujets différents, avec un corrigé détaillé rédigé selon le barème officiel.</p>
+      <div class="grid three">
+        <div class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg></div>
+          <h3>Plus de 11&nbsp;000 sujets</h3>
+          <p>Six évaluations par matière et par classe, avec une dizaine de sujets pour chacune.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></div>
+          <h3>Corrigés détaillés</h3>
+          <p>Les réponses sont expliquées étape par étape, avec la répartition des points.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></div>
+          <h3>Francophone et anglophone</h3>
+          <p>Sous-système francophone en français, sous-système anglophone entièrement en anglais.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4"/><path d="M4 18h16"/></svg></div>
+          <h3>Consultation hors ligne</h3>
+          <p>Une épreuve téléchargée reste disponible dans « Mes épreuves », même sans connexion.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
+          <h3>Format examen</h3>
+          <p>Sujets au format PDF, mis en page comme les épreuves officielles, avec figures et formules.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
+          <h3>Prix accessibles</h3>
+          <p>À partir de 150&nbsp;FCFA l'épreuve, réglée par MTN Mobile Money ou Orange Money.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="classes">
+    <div class="wrap">
+      <h2>Toutes les classes du secondaire</h2>
+      <p class="section-lead">Enseignement général, du premier au second cycle, dans les deux sous-systèmes.</p>
+      <div class="levels">
+        <div class="card">
+          <h3>Sous-système francophone</h3>
+          <p>Du collège au lycée, avec les séries A, C et D.</p>
+          <div class="chips"><span>6e</span><span>5e</span><span>4e</span><span>3e (BEPC)</span><span>2nde A</span><span>2nde C</span><span>1ère A</span><span>1ère C</span><span>1ère D</span><span>Tle A</span><span>Tle C</span><span>Tle D</span></div>
+        </div>
+        <div class="card">
+          <h3>Anglophone sub-system</h3>
+          <p>From Form 1 to Upper Sixth, including GCE Paper 1 and Paper 2.</p>
+          <div class="chips"><span>Form 1</span><span>Form 2</span><span>Form 3</span><span>Form 4</span><span>Form 5 (O Level)</span><span>Lower Sixth</span><span>Upper Sixth (A Level)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="matieres">
+    <div class="wrap">
+      <h2>Les matières</h2>
+      <p class="section-lead">Une cinquantaine de matières selon la classe et la série, dont :</p>
+      <ul class="subjects">
+        <li>Mathématiques</li><li>Physique</li><li>Chimie</li><li>SVT</li><li>Informatique</li>
+        <li>Français</li><li>Anglais</li><li>Philosophie</li><li>Histoire</li><li>Géographie</li>
+        <li>ECM</li><li>Allemand</li><li>Espagnol</li><li>Arabe</li>
+        <li>Mathematics</li><li>Physics</li><li>Chemistry</li><li>Biology</li><li>Computer Science</li>
+        <li>Geology</li><li>Economics</li><li>History</li><li>Geography</li><li>Citizenship</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="installation">
+    <div class="wrap">
+      <h2>Installer l'application en 3 étapes</h2>
+      <p class="section-lead">L'application est distribuée ici, en dehors du Play Store. Android demande donc une autorisation unique avant la première installation.</p>
+      <ol class="steps" style="list-style:none;padding:0;margin:0">
+        <li class="card step">
+          <span class="num">1</span>
+          <div class="phone" aria-hidden="true">
+            <div class="bar">Téléchargements</div>
+            <div class="row hl"><div class="file"><span class="apkico"></span><span><b>Banque-Epreuves-v1.0.0.apk</b>72 Mo</span></div></div>
+          </div>
+          <h3>Téléchargez le fichier</h3>
+          <p>Appuyez sur le bouton vert « Télécharger », puis ouvrez le fichier <strong>Banque-Epreuves-v1.0.0.apk</strong> depuis la notification ou le dossier Téléchargements.</p>
+        </li>
+        <li class="card step">
+          <span class="num">2</span>
+          <div class="phone" aria-hidden="true">
+            <div class="bar">Installer des applis inconnues</div>
+            <div>Chrome</div>
+            <div class="row hl"><span>Autoriser cette source</span><span class="toggle"></span></div>
+          </div>
+          <h3>Autorisez la source</h3>
+          <p>Android affiche un avertissement : touchez <strong>Paramètres</strong>, puis activez <strong>Autoriser cette source</strong> pour votre navigateur ou votre gestionnaire de fichiers. Revenez ensuite en arrière.</p>
+        </li>
+        <li class="card step">
+          <span class="num">3</span>
+          <div class="phone" aria-hidden="true">
+            <div class="bar">Banque d'Epreuves MINESEC</div>
+            <div>Voulez-vous installer cette application&nbsp;?</div>
+            <span class="pbtn">Installer</span>
+          </div>
+          <h3>Installez et ouvrez</h3>
+          <p>Touchez <strong>Installer</strong>. Si Play Protect affiche un message, choisissez <strong>Installer quand même</strong>. L'icône apparaît ensuite avec vos autres applications.</p>
+        </li>
+      </ol>
+      <p class="note">Sur certains téléphones (Samsung, Tecno, Infinix, itel), l'option s'appelle « Sources inconnues » et se trouve dans <strong>Paramètres › Sécurité</strong>. Une fois l'application installée, vous pouvez désactiver cette autorisation.</p>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="wrap">
+      <h2>Questions fréquentes</h2>
+      <details>
+        <summary>L'application est-elle gratuite&nbsp;?</summary>
+        <p>Le téléchargement et l'installation sont gratuits. Chaque épreuve coûte 150&nbsp;FCFA ; le corrigé coûte 150&nbsp;FCFA au premier cycle et 200&nbsp;FCFA au second cycle.</p>
+      </details>
+      <details>
+        <summary>Pourquoi l'application n'est-elle pas sur le Play Store&nbsp;?</summary>
+        <p>Elle est publiée directement sur cette page. Le fichier est signé par l'éditeur : les mises à jour publiées ici s'installent par-dessus la version existante sans perdre vos épreuves.</p>
+      </details>
+      <details>
+        <summary>Quels téléphones sont compatibles&nbsp;?</summary>
+        <p>Tous les téléphones et tablettes sous Android 7.0 ou plus récent. Prévoyez au moins 200&nbsp;Mo d'espace libre pour l'installation.</p>
+      </details>
+      <details>
+        <summary>Faut-il une connexion internet&nbsp;?</summary>
+        <p>Oui pour parcourir le catalogue et télécharger une épreuve. Les épreuves déjà téléchargées s'ouvrent ensuite sans connexion.</p>
+      </details>
+    </div>
+  </section>
+
+  <div class="wrap cta-bottom">
+    <a class="btn-dl" href="https://github.com/etiennematoulike829-cmyk/banque-epreuves-app/releases/download/v1.0.0/Banque-Epreuves-v1.0.0.apk" download>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
+      Télécharger l'application Android (APK)
+    </a>
+    <p class="dl-note">v1.0.0 · 72&nbsp;Mo · Android 7.0+</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Banque d'Épreuves Cameroun · Épreuves et corrigés du secondaire camerounais</div>
+</footer>
+
+</body>
+</html>
