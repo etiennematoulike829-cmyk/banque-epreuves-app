@@ -5,7 +5,7 @@
 
 ## Télécharger
 
-- Page de téléchargement : https://etiennematoulike829-cmyk.github.io/banque-epreuves-app/
+- Page de téléchargement : https://banque-epreuves-app.pages.dev/ (miroir GitHub Pages : https://etiennematoulike829-cmyk.github.io/banque-epreuves-app/, souvent bloqué au Cameroun)
 - APK direct (v1.0.0, Android 7.0 ou plus) :
   https://github.com/etiennematoulike829-cmyk/banque-epreuves-app/releases/download/v1.0.0/Banque-Epreuves-v1.0.0.apk
 
