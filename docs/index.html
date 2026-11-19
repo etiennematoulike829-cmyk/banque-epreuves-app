@@ -85,7 +85,27 @@
     .brand svg { flex: none; }
     .hero h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); line-height: 1.15; margin: 28px 0 12px; letter-spacing: -.02em; }
     .hero p.lead { font-size: 1.08rem; max-width: 40em; margin: 0 0 24px; color: #d6ece3; }
-    .hero em[lang="en"] { color: #000; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .lang { position: relative; }
+    .lang-btn {
+      display: flex; align-items: center; gap: 8px; cursor: pointer;
+      background: rgba(255,255,255,.12); color: #fff; font: inherit; font-size: .95rem; font-weight: 600;
+      border: 1px solid rgba(255,255,255,.28); border-radius: 999px; padding: 6px 12px;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,.2); }
+    .lang-btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+    .lang-btn .chev { transition: transform .15s ease; }
+    .lang-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+    .flag { width: 24px; height: 16px; border-radius: 2px; flex: none; box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
+    .lang-menu {
+      position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; min-width: 170px;
+      margin: 0; padding: 6px; list-style: none;
+      background: #fff; color: #14211c; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .lang-menu[hidden] { display: none; }
+    .lang-menu li { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    .lang-menu li:hover, .lang-menu li:focus { background: #e3f2ec; outline: none; }
+    .lang-menu li[aria-selected="true"]::after { content: "✓"; margin-left: auto; color: #0f6b4f; }
     .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none; }
     .meta li { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 4px 12px; font-size: .9rem; }
 
@@ -171,64 +191,80 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flag-fr" viewBox="0 0 3 2"><rect width="1" height="2" fill="#0055a4"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ef4135"/></symbol>
+  <symbol id="flag-en" viewBox="0 0 60 30"><clipPath id="uk-t"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#c8102e" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#c8102e" stroke-width="6"/></symbol>
+</svg>
+
 <header class="hero">
   <div class="wrap">
+    <div class="topbar">
     <div class="brand">
       <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#fff" fill-opacity=".14"/><path d="M18 16h20l8 8v24H18z" fill="#fff"/><path d="M24 32h16M24 39h16M24 25h9" stroke="#0f6b4f" stroke-width="3"/></svg>
       Banque d'Épreuves Cameroun
     </div>
-    <h1>Les épreuves et leurs corrigés de la 6<sup>e</sup> en Tle et de Form&nbsp;1 à Upper Sixth<br>
-      <em lang="en">Exam papers and their answers from 6<sup>e</sup> to Tle and from Form&nbsp;1 to Upper Sixth</em></h1>
-    <p class="lead">Plus de 15&nbsp;000 sujets avec corrigés de la classe de 6<sup>e</sup> en Terminale et du Form&nbsp;1 à Upper Sixth, avec épreuves à en-tête personnalisé.<br>
-      <em lang="en">Over 15,000 exam papers with answers from 6<sup>e</sup> to Terminale and from Form&nbsp;1 to Upper Sixth, with custom-header exam papers.</em></p>
+    <div class="lang">
+      <button type="button" class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Langue / Language">
+        <svg class="flag" aria-hidden="true"><use href="#flag-fr"/></svg>
+        <span id="lang-nom">Français</span>
+        <svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="lang-menu" id="lang-menu" role="listbox" hidden>
+        <li role="option" tabindex="-1" data-lang="fr" aria-selected="true"><svg class="flag" aria-hidden="true"><use href="#flag-fr"/></svg>Français</li>
+        <li role="option" tabindex="-1" data-lang="en" aria-selected="false"><svg class="flag" aria-hidden="true"><use href="#flag-en"/></svg>English</li>
+      </ul>
+    </div>
+    </div>
+    <h1 data-i18n="t0">Les épreuves et leurs corrigés de la 6<sup>e</sup> en Tle et de Form&nbsp;1 à Upper Sixth</h1>
+    <p data-i18n="t1" class="lead">Plus de 15&nbsp;000 sujets avec corrigés de la classe de 6<sup>e</sup> en Terminale et du Form&nbsp;1 à Upper Sixth, avec épreuves à en-tête personnalisé.</p>
     <ul class="meta" aria-label="Informations sur le fichier">
       <li>Version v1.0.0</li>
-      <li>Android 7.0 ou plus</li>
-      <li>APK de 72&nbsp;Mo (75&nbsp;492&nbsp;510 octets)</li>
+      <li data-i18n="t2">Android 7.0 ou plus</li>
+      <li data-i18n="t3">APK de 72&nbsp;Mo (75&nbsp;492&nbsp;510 octets)</li>
     </ul>
     <a class="btn-dl" href="https://github.com/etiennematoulike829-cmyk/banque-epreuves-app/releases/download/v1.0.0/Banque-Epreuves-v1.0.0.apk" download>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
-      Télécharger l'application Android (APK)
+      <span data-i18n="dl">Télécharger l'application Android (APK)</span>
     </a>
-    <p class="dl-note">Installation gratuite. Les épreuves et les corrigés s'achètent à l'unité dans l'application.</p>
+    <p data-i18n="t4" class="dl-note">Installation gratuite. Les épreuves et les corrigés s'achètent à l'unité dans l'application.</p>
   </div>
 </header>
 
 <main>
   <section id="fonctionnalites">
     <div class="wrap">
-      <h2>Ce que contient l'application</h2>
-      <p class="section-lead">Chaque évaluation propose plusieurs sujets différents, avec un corrigé détaillé rédigé selon le barème officiel.</p>
+      <h2 data-i18n="t5">Ce que contient l'application</h2>
+      <p data-i18n="t6" class="section-lead">Chaque évaluation propose plusieurs sujets différents, avec un corrigé détaillé rédigé selon le barème officiel.</p>
       <div class="grid three">
         <div class="card">
           <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg></div>
-          <h3>Plus de 15&nbsp;000 sujets</h3>
-          <p>Six évaluations par matière et par classe, avec une dizaine de sujets pour chacune.</p>
+          <h3 data-i18n="t7">Plus de 15&nbsp;000 sujets</h3>
+          <p data-i18n="t8">Six évaluations par matière et par classe, avec une dizaine de sujets pour chacune.</p>
         </div>
         <div class="card">
           <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></div>
-          <h3>Corrigés détaillés</h3>
-          <p>Les réponses sont expliquées étape par étape, avec la répartition des points.</p>
+          <h3 data-i18n="t9">Corrigés détaillés</h3>
+          <p data-i18n="t10">Les réponses sont expliquées étape par étape, avec la répartition des points.</p>
         </div>
         <div class="card">
           <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></div>
-          <h3>Francophone et anglophone</h3>
-          <p>Sous-système francophone en français, sous-système anglophone entièrement en anglais.</p>
+          <h3 data-i18n="t11">Francophone et anglophone</h3>
+          <p data-i18n="t12">Sous-système francophone en français, sous-système anglophone entièrement en anglais.</p>
         </div>
         <div class="card">
           <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4"/><path d="M4 18h16"/></svg></div>
-          <h3>Consultation hors ligne</h3>
-          <p>Une épreuve téléchargée reste disponible dans « Mes épreuves », même sans connexion.</p>
+          <h3 data-i18n="t13">Consultation hors ligne</h3>
+          <p data-i18n="t14">Une épreuve téléchargée reste disponible dans « Mes épreuves », même sans connexion.</p>
         </div>
         <div class="card">
           <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
-          <h3>Format examen</h3>
-          <p>Sujets au format PDF, mis en page comme les épreuves officielles, avec figures, formules et en-têtes personnalisés.</p>
+          <h3 data-i18n="t15">Format examen</h3>
+          <p data-i18n="t16">Sujets au format PDF, mis en page comme les épreuves officielles, avec figures, formules et en-têtes personnalisés.</p>
         </div>
         <div class="card">
           <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
-          <h3>Prix accessibles</h3>
-          <p>À partir de 150&nbsp;FCFA l'épreuve, réglée par MTN Mobile Money ou Orange Money.</p>
+          <h3 data-i18n="t17">Prix accessibles</h3>
+          <p data-i18n="t18">À partir de 150&nbsp;FCFA l'épreuve, réglée par MTN Mobile Money ou Orange Money.</p>
         </div>
       </div>
     </div>
@@ -236,12 +272,12 @@
 
   <section id="classes">
     <div class="wrap">
-      <h2>Toutes les classes du secondaire</h2>
-      <p class="section-lead">Enseignement général, du premier au second cycle, dans les deux sous-systèmes.</p>
+      <h2 data-i18n="t19">Toutes les classes du secondaire</h2>
+      <p data-i18n="t20" class="section-lead">Enseignement général, du premier au second cycle, dans les deux sous-systèmes.</p>
       <div class="levels">
         <div class="card">
-          <h3>Sous-système francophone</h3>
-          <p>Du collège au lycée, avec les séries A, C et D.</p>
+          <h3 data-i18n="t21">Sous-système francophone</h3>
+          <p data-i18n="t22">Du collège au lycée, avec les séries A, C et D.</p>
           <div class="chips"><span>6e</span><span>5e</span><span>4e</span><span>3e (BEPC)</span><span>2nde A</span><span>2nde C</span><span>1ère A</span><span>1ère C</span><span>1ère D</span><span>Tle A</span><span>Tle C</span><span>Tle D</span></div>
         </div>
         <div class="card">
@@ -255,12 +291,12 @@
 
   <section id="matieres">
     <div class="wrap">
-      <h2>Les matières</h2>
-      <p class="section-lead">Une cinquantaine de matières selon la classe et la série, dont :</p>
+      <h2 data-i18n="t23">Les matières</h2>
+      <p data-i18n="t24" class="section-lead">Une cinquantaine de matières selon la classe et la série, dont :</p>
       <ul class="subjects">
-        <li>Mathématiques</li><li>Physique</li><li>Chimie</li><li>SVT</li><li>Informatique</li>
-        <li>Français</li><li>Anglais</li><li>Philosophie</li><li>Histoire</li><li>Géographie</li>
-        <li>ECM</li><li>Allemand</li><li>Espagnol</li><li>Arabe</li>
+        <li data-i18n="t25">Mathématiques</li><li data-i18n="t26">Physique</li><li data-i18n="t27">Chimie</li><li data-i18n="t28">SVT</li><li data-i18n="t29">Informatique</li>
+        <li data-i18n="t30">Français</li><li data-i18n="t31">Anglais</li><li data-i18n="t32">Philosophie</li><li data-i18n="t33">Histoire</li><li data-i18n="t34">Géographie</li>
+        <li data-i18n="t35">ECM</li><li data-i18n="t36">Allemand</li><li data-i18n="t37">Espagnol</li><li data-i18n="t38">Arabe</li>
         <li>Mathematics</li><li>Physics</li><li>Chemistry</li><li>Biology</li><li>Computer Science</li>
         <li>Geology</li><li>Economics</li><li>History</li><li>Geography</li><li>Citizenship</li>
       </ul>
@@ -269,61 +305,61 @@
 
   <section id="installation">
     <div class="wrap">
-      <h2>Installer l'application en 3 étapes</h2>
-      <p class="section-lead">L'application est distribuée ici, en dehors du Play Store. Android demande donc une autorisation unique avant la première installation.</p>
+      <h2 data-i18n="t39">Installer l'application en 3 étapes</h2>
+      <p data-i18n="t40" class="section-lead">L'application est distribuée ici, en dehors du Play Store. Android demande donc une autorisation unique avant la première installation.</p>
       <ol class="steps" style="list-style:none;padding:0;margin:0">
         <li class="card step">
           <span class="num">1</span>
           <div class="phone" aria-hidden="true">
-            <div class="bar">Téléchargements</div>
+            <div data-i18n="t41" class="bar">Téléchargements</div>
             <div class="row hl"><div class="file"><span class="apkico"></span><span><b>Banque-Epreuves-v1.0.0.apk</b>72 Mo</span></div></div>
           </div>
-          <h3>Téléchargez le fichier</h3>
-          <p>Appuyez sur le bouton vert « Télécharger », puis ouvrez le fichier <strong>Banque-Epreuves-v1.0.0.apk</strong> depuis la notification ou le dossier Téléchargements.</p>
+          <h3 data-i18n="t42">Téléchargez le fichier</h3>
+          <p data-i18n="t43">Appuyez sur le bouton vert « Télécharger », puis ouvrez le fichier <strong>Banque-Epreuves-v1.0.0.apk</strong> depuis la notification ou le dossier Téléchargements.</p>
         </li>
         <li class="card step">
           <span class="num">2</span>
           <div class="phone" aria-hidden="true">
-            <div class="bar">Installer des applis inconnues</div>
+            <div data-i18n="t44" class="bar">Installer des applis inconnues</div>
             <div>Chrome</div>
-            <div class="row hl"><span>Autoriser cette source</span><span class="toggle"></span></div>
+            <div class="row hl"><span data-i18n="t45">Autoriser cette source</span><span class="toggle"></span></div>
           </div>
-          <h3>Autorisez la source</h3>
-          <p>Android affiche un avertissement : touchez <strong>Paramètres</strong>, puis activez <strong>Autoriser cette source</strong> pour votre navigateur ou votre gestionnaire de fichiers. Revenez ensuite en arrière.</p>
+          <h3 data-i18n="t46">Autorisez la source</h3>
+          <p data-i18n="t47">Android affiche un avertissement : touchez <strong>Paramètres</strong>, puis activez <strong>Autoriser cette source</strong> pour votre navigateur ou votre gestionnaire de fichiers. Revenez ensuite en arrière.</p>
         </li>
         <li class="card step">
           <span class="num">3</span>
           <div class="phone" aria-hidden="true">
             <div class="bar">Banque d'Epreuves</div>
-            <div>Voulez-vous installer cette application&nbsp;?</div>
-            <span class="pbtn">Installer</span>
+            <div data-i18n="t48">Voulez-vous installer cette application&nbsp;?</div>
+            <span data-i18n="t49" class="pbtn">Installer</span>
           </div>
-          <h3>Installez et ouvrez</h3>
-          <p>Touchez <strong>Installer</strong>. Si Play Protect affiche un message, choisissez <strong>Installer quand même</strong>. L'icône apparaît ensuite avec vos autres applications.</p>
+          <h3 data-i18n="t50">Installez et ouvrez</h3>
+          <p data-i18n="t51">Touchez <strong>Installer</strong>. Si Play Protect affiche un message, choisissez <strong>Installer quand même</strong>. L'icône apparaît ensuite avec vos autres applications.</p>
         </li>
       </ol>
-      <p class="note">Sur certains téléphones (Samsung, Tecno, Infinix, itel), l'option s'appelle « Sources inconnues » et se trouve dans <strong>Paramètres › Sécurité</strong>. Une fois l'application installée, vous pouvez désactiver cette autorisation.</p>
+      <p data-i18n="t52" class="note">Sur certains téléphones (Samsung, Tecno, Infinix, itel), l'option s'appelle « Sources inconnues » et se trouve dans <strong>Paramètres › Sécurité</strong>. Une fois l'application installée, vous pouvez désactiver cette autorisation.</p>
     </div>
   </section>
 
   <section id="questions">
     <div class="wrap">
-      <h2>Questions fréquentes</h2>
+      <h2 data-i18n="t53">Questions fréquentes</h2>
       <details>
-        <summary>L'application est-elle gratuite&nbsp;?</summary>
-        <p>Le téléchargement et l'installation sont gratuits. Chaque épreuve coûte 150&nbsp;FCFA ; le corrigé coûte 150&nbsp;FCFA au premier cycle et 200&nbsp;FCFA au second cycle.</p>
+        <summary data-i18n="t54">L'application est-elle gratuite&nbsp;?</summary>
+        <p data-i18n="t55">Le téléchargement et l'installation sont gratuits. Chaque épreuve coûte 150&nbsp;FCFA ; le corrigé coûte 150&nbsp;FCFA au premier cycle et 200&nbsp;FCFA au second cycle.</p>
       </details>
       <details>
-        <summary>Pourquoi l'application n'est-elle pas sur le Play Store&nbsp;?</summary>
-        <p>Elle est publiée directement sur cette page. Le fichier est signé par l'éditeur : les mises à jour publiées ici s'installent par-dessus la version existante sans perdre vos épreuves.</p>
+        <summary data-i18n="t56">Pourquoi l'application n'est-elle pas sur le Play Store&nbsp;?</summary>
+        <p data-i18n="t57">Elle est publiée directement sur cette page. Le fichier est signé par l'éditeur : les mises à jour publiées ici s'installent par-dessus la version existante sans perdre vos épreuves.</p>
       </details>
       <details>
-        <summary>Quels téléphones sont compatibles&nbsp;?</summary>
-        <p>Tous les téléphones et tablettes sous Android 7.0 ou plus récent. Prévoyez au moins 200&nbsp;Mo d'espace libre pour l'installation.</p>
+        <summary data-i18n="t58">Quels téléphones sont compatibles&nbsp;?</summary>
+        <p data-i18n="t59">Tous les téléphones et tablettes sous Android 7.0 ou plus récent. Prévoyez au moins 200&nbsp;Mo d'espace libre pour l'installation.</p>
       </details>
       <details>
-        <summary>Faut-il une connexion internet&nbsp;?</summary>
-        <p>Oui pour parcourir le catalogue et télécharger une épreuve. Les épreuves déjà téléchargées s'ouvrent ensuite sans connexion.</p>
+        <summary data-i18n="t60">Faut-il une connexion internet&nbsp;?</summary>
+        <p data-i18n="t61">Oui pour parcourir le catalogue et télécharger une épreuve. Les épreuves déjà téléchargées s'ouvrent ensuite sans connexion.</p>
       </details>
     </div>
   </section>
@@ -331,15 +367,132 @@
   <div class="wrap cta-bottom">
     <a class="btn-dl" href="https://github.com/etiennematoulike829-cmyk/banque-epreuves-app/releases/download/v1.0.0/Banque-Epreuves-v1.0.0.apk" download>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg>
-      Télécharger l'application Android (APK)
+      <span data-i18n="dl">Télécharger l'application Android (APK)</span>
     </a>
-    <p class="dl-note">v1.0.0 · 72&nbsp;Mo · Android 7.0+</p>
+    <p data-i18n="t62" class="dl-note">v1.0.0 · 72&nbsp;Mo · Android 7.0+</p>
   </div>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Banque d'Épreuves Cameroun · Épreuves et corrigés du secondaire camerounais</div>
+  <div data-i18n="t63" class="wrap">© 2026 Banque d'Épreuves Cameroun · Épreuves et corrigés du secondaire camerounais</div>
 </footer>
+
+<script>
+(function () {
+  var EN = {
+  "t0": "Exam papers and their answers from 6<sup>e<\/sup> to Tle and from Form&nbsp;1 to Upper Sixth",
+  "t1": "Over 15,000 exam papers with answers from 6<sup>e<\/sup> to Terminale and from Form&nbsp;1 to Upper Sixth, with custom-header exam papers.",
+  "t2": "Android 7.0 or later",
+  "t3": "72&nbsp;MB APK (75,492,510 bytes)",
+  "t4": "Free to install. Exam papers and answers are bought one at a time in the app.",
+  "t5": "What the app contains",
+  "t6": "Each assessment offers several different papers, with a detailed answer key written according to the official marking scheme.",
+  "t7": "Over 15,000 papers",
+  "t8": "Six assessments per subject and per class, with about ten papers for each.",
+  "t9": "Detailed answers",
+  "t10": "Answers are explained step by step, with the breakdown of marks.",
+  "t11": "French and English sub-systems",
+  "t12": "Francophone sub-system in French, Anglophone sub-system entirely in English.",
+  "t13": "Offline access",
+  "t14": "A downloaded paper stays available in “My papers”, even without a connection.",
+  "t15": "Exam format",
+  "t16": "PDF papers laid out like official exams, with figures, formulas and custom headers.",
+  "t17": "Affordable prices",
+  "t18": "From 150&nbsp;FCFA per paper, paid with MTN Mobile Money or Orange Money.",
+  "t19": "All secondary school classes",
+  "t20": "General education, from the first to the second cycle, in both sub-systems.",
+  "t21": "Francophone sub-system",
+  "t22": "From 6<sup>e<\/sup> to Terminale, with the A, C and D series.",
+  "t23": "Subjects",
+  "t24": "About fifty subjects depending on the class and series, including:",
+  "t25": "Mathématiques",
+  "t26": "Physique",
+  "t27": "Chimie",
+  "t28": "SVT (Life and Earth Sciences)",
+  "t29": "Informatique",
+  "t30": "French",
+  "t31": "English",
+  "t32": "Philosophy",
+  "t33": "Histoire",
+  "t34": "Géographie",
+  "t35": "ECM (Civics)",
+  "t36": "German",
+  "t37": "Spanish",
+  "t38": "Arabic",
+  "t39": "Install the app in 3 steps",
+  "t40": "The app is distributed here, outside the Play Store, so Android asks for a one-time permission before the first installation.",
+  "t41": "Downloads",
+  "t42": "Download the file",
+  "t43": "Tap the “Download” button, then open the file <strong>Banque-Epreuves-v1.0.0.apk<\/strong> from the notification or the Downloads folder.",
+  "t44": "Install unknown apps",
+  "t45": "Allow from this source",
+  "t46": "Allow the source",
+  "t47": "Android shows a warning: tap <strong>Settings<\/strong>, then turn on <strong>Allow from this source<\/strong> for your browser or file manager. Then go back.",
+  "t48": "Do you want to install this app?",
+  "t49": "Install",
+  "t50": "Install and open",
+  "t51": "Tap <strong>Install<\/strong>. If Play Protect shows a message, choose <strong>Install anyway<\/strong>. The icon then appears with your other apps.",
+  "t52": "On some phones (Samsung, Tecno, Infinix, itel), the option is called “Unknown sources” and is found in <strong>Settings › Security<\/strong>. Once the app is installed, you can turn this permission off.",
+  "t53": "Frequently asked questions",
+  "t54": "Is the app free?",
+  "t55": "Downloading and installing are free. Each paper costs 150&nbsp;FCFA; the answer key costs 150&nbsp;FCFA in the first cycle and 200&nbsp;FCFA in the second cycle.",
+  "t56": "Why isn't the app on the Play Store?",
+  "t57": "It is published directly on this page. The file is signed by the publisher: updates published here install over the existing version without losing your papers.",
+  "t58": "Which phones are compatible?",
+  "t59": "All phones and tablets running Android 7.0 or later. Allow at least 200&nbsp;MB of free space for the installation.",
+  "t60": "Do I need an internet connection?",
+  "t61": "Yes, to browse the catalogue and download a paper. Papers already downloaded then open without a connection.",
+  "t62": "v1.0.0 · 72&nbsp;MB · Android 7.0+",
+  "t63": "© 2026 Banque d'Épreuves Cameroun · Secondary school exam papers and answers for Cameroon",
+  "dl": "Download the Android app (APK)",
+  "title": "Banque d'Épreuves Cameroun – Exam papers and answers from 6e to Terminale (Android APK)",
+  "metaDesc": "Download Banque d'Épreuves Cameroun for free: over 15,000 exam papers with answers for Cameroonian secondary schools, from 6e to Terminale and from Form 1 to Upper Sixth. Prepare for the BEPC, Probatoire, BAC and GCE."
+};
+  var noms = { fr: 'Français', en: 'English' };
+  var els = document.querySelectorAll('[data-i18n]');
+  var FR = {};
+  els.forEach(function (el) { FR[el.dataset.i18n] = el.innerHTML; });
+  FR.title = document.title;
+  var desc = document.querySelector('meta[name="description"]');
+  FR.metaDesc = desc.content;
+
+  var btn = document.getElementById('lang-btn');
+  var menu = document.getElementById('lang-menu');
+  var items = menu.querySelectorAll('li');
+
+  function appliquer(lang) {
+    var d = lang === 'en' ? EN : FR;
+    els.forEach(function (el) { el.innerHTML = d[el.dataset.i18n]; });
+    document.title = d.title;
+    desc.content = d.metaDesc;
+    document.documentElement.lang = lang;
+    btn.querySelector('use').setAttribute('href', '#flag-' + lang);
+    document.getElementById('lang-nom').textContent = noms[lang];
+    items.forEach(function (li) { li.setAttribute('aria-selected', li.dataset.lang === lang ? 'true' : 'false'); });
+    try { localStorage.setItem('langue', lang); } catch (e) {}
+  }
+  function ouvrir(o) {
+    menu.hidden = !o;
+    btn.setAttribute('aria-expanded', o ? 'true' : 'false');
+    if (o) (menu.querySelector('[aria-selected="true"]') || items[0]).focus();
+  }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); ouvrir(menu.hidden); });
+  items.forEach(function (li, i) {
+    li.addEventListener('click', function () { appliquer(li.dataset.lang); ouvrir(false); btn.focus(); });
+    li.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.click(); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i + items.length - 1) % items.length].focus(); }
+    });
+  });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !menu.contains(e.target)) ouvrir(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { ouvrir(false); btn.focus(); } });
+
+  var lang = 'fr';
+  try { lang = localStorage.getItem('langue') || 'fr'; } catch (e) {}
+  if (lang === 'en') appliquer('en');
+})();
+</script>
 
 </body>
 </html>
